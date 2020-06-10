@@ -40,3 +40,11 @@
     dest: '{{ peertube__versions_dir }}'
     owner: '{{ peertube__user }}'
     group: '{{ peertube__group }}'
+
+- name: Create link to current version
+  file:
+    state: link
+    src: '{{ peertube__version_dir }}'
+    dest: '{{ peertube__current_link }}'
+    owner: '{{ peertube__user }}'
+    group: '{{ peertube__group }}'

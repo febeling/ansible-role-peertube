@@ -5,7 +5,9 @@ peertube__user:  peertube
 peertube__dir: '/var/www/peertube'
 
 peertube__config_dir:   '{{ peertube__dir }}/config'
+peertube__current_link: '{{ peertube__dir }}/current'
 peertube__storage_dir:  '{{ peertube__dir }}/storage'
 peertube__versions_dir: '{{ peertube__dir }}/versions'
 
 peertube__archive_file: '{{ peertube__versions_dir }}/peertube-v{{ peertube__version }}.zip'
+peertube__version_dir:  '{{ peertube__versions_dir }}/peertube-v{{ peertube__version }}'
