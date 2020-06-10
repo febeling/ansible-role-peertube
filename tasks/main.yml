@@ -24,6 +24,14 @@
     - '{{ peertube__storage_dir }}'
     - '{{ peertube__versions_dir }}'
 
+- name: Create config
+  copy:
+    src: templates/production.yml
+    dest: '{{ peertube__config_file }}'
+    mode: 'u=rwx,g=,o='
+    owner: '{{ peertube__user }}'
+    group: '{{ peertube__group }}'
+
 - name: Fetch archive
   get_url:
     url: '{{ peertube__archive_url }}'
