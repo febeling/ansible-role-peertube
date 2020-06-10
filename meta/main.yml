@@ -14,5 +14,6 @@ galaxy_info:
     - video
 
   platforms:
+    - name: Ubuntu
       versions:
         - focal  # Ubuntu 20.04 LTS Focal Fossa
