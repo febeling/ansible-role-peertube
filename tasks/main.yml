@@ -10,3 +10,16 @@
     group: '{{ peertube__group }}'
     system: true
     create_home: false
+
+- name: Create directories
+  file:
+    state: directory
+    path: '{{ item }}'
+    mode: 'u=rwx,g=rx,o=rx'
+    owner: '{{ peertube__user }}'
+    group: '{{ peertube__group }}'
+  with_items:
+    - '{{ peertube__dir }}'
+    - '{{ peertube__config_dir }}'
+    - '{{ peertube__storage_dir }}'
+    - '{{ peertube__versions_dir }}'

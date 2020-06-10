@@ -1,3 +1,9 @@
 ---
 peertube__group: peertube
 peertube__user:  peertube
+
+peertube__dir: '/var/www/peertube'
+
+peertube__config_dir:   '{{ peertube__dir }}/config'
+peertube__storage_dir:  '{{ peertube__dir }}/storage'
+peertube__versions_dir: '{{ peertube__dir }}/versions'
