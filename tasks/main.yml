@@ -23,7 +23,6 @@
     - '{{ peertube__config_dir }}'
     - '{{ peertube__storage_dir }}'
     - '{{ peertube__versions_dir }}'
-    - '{{ peertube__version_dir }}'
 
 - name: Fetch archive
   get_url:
@@ -38,8 +37,6 @@
   unarchive:
     remote_src: true
     src: '{{ peertube__archive_file }}'
-    dest: '{{ peertube__version_dir }}'
+    dest: '{{ peertube__versions_dir }}'
     owner: '{{ peertube__user }}'
     group: '{{ peertube__group }}'
-    extra_opts:
-      - '--strip-components=1'
