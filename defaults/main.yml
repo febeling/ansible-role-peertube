@@ -1,1 +1,3 @@
 ---
+peertube__group: peertube
+peertube__user:  peertube

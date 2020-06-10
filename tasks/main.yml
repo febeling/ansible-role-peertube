@@ -1,1 +1,12 @@
 ---
+- name: Group
+  group:
+    name: '{{ peertube__group }}'
+    system: true
+
+- name: User
+  user:
+    name: '{{ peertube__user }}'
+    group: '{{ peertube__group }}'
+    system: true
+    create_home: false
