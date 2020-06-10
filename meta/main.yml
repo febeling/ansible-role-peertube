@@ -1,0 +1,18 @@
+---
+allow_duplicates: false
+dependencies: []
+
+galaxy_info:
+  role_name: peertube
+  author: Alex Kotov
+  description: PeerTube - ActivityPub-federated video streaming platform
+  license: MIT
+  min_ansible_version: 2.8
+
+  galaxy_tags:
+    - peertube
+    - video
+
+  platforms:
+      versions:
+        - focal  # Ubuntu 20.04 LTS Focal Fossa
