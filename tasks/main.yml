@@ -32,3 +32,13 @@
     mode: 'u=rw,g=r,o=r'
     owner: '{{ peertube__user }}'
     group: '{{ peertube__group }}'
+
+- name: Extract archive
+  unarchive:
+    remote_src: true
+    src: '{{ peertube__archive_file }}'
+    dest: '{{ peertube__version_dir }}'
+    owner: '{{ peertube__user }}'
+    group: '{{ peertube__group }}'
+    extra_opts:
+      - '--strip-components=1'
