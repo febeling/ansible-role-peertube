@@ -23,3 +23,12 @@
     - '{{ peertube__config_dir }}'
     - '{{ peertube__storage_dir }}'
     - '{{ peertube__versions_dir }}'
+
+- name: Fetch archive
+  get_url:
+    url: '{{ peertube__archive_url }}'
+    checksum: '{{ peertube__archive_checksum }}'
+    dest: '{{ peertube__archive_file }}'
+    mode: 'u=rw,g=r,o=r'
+    owner: '{{ peertube__user }}'
+    group: '{{ peertube__group }}'

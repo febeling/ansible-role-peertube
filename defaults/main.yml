@@ -7,3 +7,5 @@ peertube__dir: '/var/www/peertube'
 peertube__config_dir:   '{{ peertube__dir }}/config'
 peertube__storage_dir:  '{{ peertube__dir }}/storage'
 peertube__versions_dir: '{{ peertube__dir }}/versions'
+
+peertube__archive_file: '{{ peertube__versions_dir }}/peertube-v{{ peertube__version }}.zip'
