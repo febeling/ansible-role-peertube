@@ -26,7 +26,7 @@
 
 - name: Create config
   copy:
-    src: templates/production.yml
+    src: templates/production.yaml
     dest: '{{ peertube__config_file }}'
     mode: 'u=rwx,g=,o='
     owner: '{{ peertube__user }}'
