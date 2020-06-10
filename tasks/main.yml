@@ -23,6 +23,7 @@
     - '{{ peertube__config_dir }}'
     - '{{ peertube__storage_dir }}'
     - '{{ peertube__versions_dir }}'
+    - '{{ peertube__version_dir }}'
 
 - name: Fetch archive
   get_url:
