@@ -12,7 +12,7 @@ ExecStart={{ peertube__npm }} start
 WorkingDirectory={{ peertube__current_link }}
 StandardOutput=syslog
 StandardError=syslog
-SyslogIdentifier={{ peertube__servive }}
+SyslogIdentifier={{ peertube__service }}
 Restart=always
 
 ; Some security directives.
