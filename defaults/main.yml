@@ -15,5 +15,4 @@ peertube__config_file:  '{{ peertube__config_dir }}/production.yaml'
 peertube__version_dir:  '{{ peertube__versions_dir }}/peertube-v{{ peertube__version }}'
 
 peertube__npm: '/usr/bin/npm'
-
 peertube__systemd_after: 'network.target'  # postgresql.service redis-server.service
