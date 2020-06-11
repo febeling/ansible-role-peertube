@@ -28,7 +28,7 @@
     - '{{ peertube__versions_dir }}'
 
 - name: Create config
-  copy:
+  template:
     src: templates/production.yaml
     dest: '{{ peertube__config_file }}'
     mode: 'u=rwx,g=,o='
