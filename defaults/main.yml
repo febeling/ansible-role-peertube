@@ -16,4 +16,4 @@ peertube__version_dir:  '{{ peertube__versions_dir }}/peertube-v{{ peertube__ver
 
 peertube__npm: '/usr/bin/npm'
 
-peertube__systemd_after: 'network.target' # postgresql.service redis-server.service
+peertube__systemd_after: 'network.target'  # postgresql.service redis-server.service

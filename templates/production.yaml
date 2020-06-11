@@ -1,3 +1,4 @@
+---
 listen:
   hostname: 'localhost'
   port: 9000
@@ -26,9 +27,9 @@ rates_limit:
     window: 5 minutes
     max: 3
 
-# Proxies to trust to get real client IP
-# If you run PeerTube just behind a local proxy (nginx), keep 'loopback'
-# If you run PeerTube behind a remote proxy, add the proxy IP address (or subnet)
+# Proxies to trust to get real client IP. If you run PeerTube just behind
+# a local proxy (nginx), keep 'loopback'. If you run PeerTube behind a remote
+# proxy, add the proxy IP address (or subnet).
 trust_proxy:
   - 'loopback'
 
@@ -58,12 +59,12 @@ smtp:
   # Path to sendmail command. Required if you use sendmail transport
   sendmail: null
   hostname: null
-  port: 465 # If you use StartTLS: 587
+  port: 465  # If you use StartTLS: 587
   username: null
   password: null
-  tls: true # If you use StartTLS: false
+  tls: true  # If you use StartTLS: false
   disable_starttls: false
-  ca_file: null # Used for self signed certificates
+  ca_file: null  # Used for self signed certificates
   from_address: 'admin@example.com'
 
 email:
@@ -74,7 +75,7 @@ email:
 
 # From the project root directory
 storage:
-  tmp: '/var/www/peertube/storage/tmp/' # Use to download data (imports etc), store uploaded files before processing...
+  tmp: '/var/www/peertube/storage/tmp/'
   avatars: '/var/www/peertube/storage/avatars/'
   videos: '/var/www/peertube/storage/videos/'
   streaming_playlists: '/var/www/peertube/storage/streaming-playlists/'
@@ -88,48 +89,60 @@ storage:
   plugins: '/var/www/peertube/storage/plugins/'
 
 log:
-  level: 'info' # debug/info/warning/error
+  level: 'info'  # debug/info/warning/error
+  anonymizeIP: false
   rotation:
-    enabled : true # Enabled by default, if disabled make sure that 'storage.logs' is pointing to a folder handled by logrotate
+    # Enabled by default, if disabled make sure that 'storage.logs' is pointing
+    # to a folder handled by logrotate.
+    enabled: true
+
     maxFileSize: 12MB
     maxFiles: 20
-  anonymizeIP: false
 
 search:
-  # Add ability to fetch remote videos/actors by their URI, that may not be federated with your instance
-  # If enabled, the associated group will be able to "escape" from the instance follows
-  # That means they will be able to follow channels, watch videos, list videos of non followed instances
+  # Add ability to fetch remote videos/actors by their URI, that may not
+  # be federated with your instance. If enabled, the associated group will
+  # be able to "escape" from the instance follow. That means they will be able
+  # to follow channels, watch videos, list videos of non followed instance.
   remote_uri:
     users: true
     anonymous: false
 
 trending:
   videos:
-    interval_days: 7 # Compute trending videos for the last x days
+    interval_days: 7  # Compute trending videos for the last x days.
 
-# Cache remote videos on your server, to help other instances to broadcast the video
-# You can define multiple caches using different sizes/strategies
-# Once you have defined your strategies, choose which instances you want to cache in admin -> manage follows -> following
+# Cache remote videos on your server, to help other instances to broadcast
+# the video. You can define multiple caches using different sizes/strategies.
+# Once you have defined your strategies, choose which instances you want
+# to cache in admin -> manage follows -> following.
 redundancy:
   videos:
-    check_interval: '1 hour' # How often you want to check new videos to cache
-    strategies: # Just uncomment strategies you want
-#      -
-#        size: '10GB'
-#        # Minimum time the video must remain in the cache. Only accept values > 10 hours (to not overload remote instances)
-#        min_lifetime: '48 hours'
+    check_interval: '1 hour'  # How often you want to check new videos to cache.
+
+    # Just uncomment strategies you want.
+    strategies:
+#      - size: '10GB'
 #        strategy: 'most-views' # Cache videos that have the most views
-#      -
-#        size: '10GB'
-#        # Minimum time the video must remain in the cache. Only accept values > 10 hours (to not overload remote instances)
+#
+#        # Minimum time the video must remain in the cache.
+#        # Only accept values > 10 hours (to not overload remote instances).
 #        min_lifetime: '48 hours'
+#
+#      - size: '10GB'
 #        strategy: 'trending' # Cache trending videos
-#      -
-#        size: '10GB'
-#        # Minimum time the video must remain in the cache. Only accept values > 10 hours (to not overload remote instances)
+#
+#        # Minimum time the video must remain in the cache.
+#        # Only accept values > 10 hours (to not overload remote instances).
 #        min_lifetime: '48 hours'
-#        strategy: 'recently-added' # Cache recently added videos
-#        min_views: 10 # Having at least x views
+#
+#      - size: '10GB'
+#        strategy: 'recently-added'  # Cache recently added videos
+#        min_views: 10  # Having at least x views
+#
+#        # Minimum time the video must remain in the cache.
+#        # Only accept values > 10 hours (to not overload remote instances).
+#        min_lifetime: '48 hours'
 
 # Other instances that duplicate your content
 remote_redundancy:
@@ -141,43 +154,54 @@ remote_redundancy:
 
 csp:
   enabled: false
-  report_only: true # CSP directives are still being tested, so disable the report only mode at your own risk!
   report_uri:
+
+  # CSP directives are still being tested, so disable the report only mode
+  # at your own risk!
+  report_only: true
 
 tracker:
   # If you disable the tracker, you disable the P2P aspect of PeerTube
   enabled: true
-  # Only handle requests on your videos.
-  # If you set this to false it means you have a public tracker.
-  # Then, it is possible that clients overload your instance with external torrents
+
+  # Only handle requests on your videos. If you set this to false it means
+  # you have a public tracker. Then, it is possible that clients overload
+  # your instance with external torrents.
   private: true
-  # Reject peers that do a lot of announces (could improve privacy of TCP/UDP peers)
+
+  # Reject peers that do a lot of announces
+  # (could improve privacy of TCP/UDP peers).
   reject_too_many_announces: false
 
 history:
   videos:
-    # If you want to limit users videos history
-    # -1 means there is no limitations
-    # Other values could be '6 months' or '30 days' etc (PeerTube will periodically delete old entries from database)
+    # If you want to limit users videos history.
+    # -1 means there is no limitations.
+    # Other values could be '6 months' or '30 days' etc
+    # (PeerTube will periodically delete old entries from database).
     max_age: -1
 
 views:
   videos:
-    # PeerTube creates a database entry every hour for each video to track views over a period of time
-    # This is used in particular by the Trending page
-    # PeerTube could remove old remote video views if you want to reduce your database size (video view counter will not be altered)
-    # -1 means no cleanup
-    # Other values could be '6 months' or '30 days' etc (PeerTube will periodically delete old entries from database)
+    # PeerTube creates a database entry every hour for each video to track
+    # views over a period of time. This is used in particular by the Trending
+    # page. PeerTube could remove old remote video views if you want to reduce
+    # your database size (video view counter will not be altered). -1 means
+    # no cleanup. Other values could be '6 months' or '30 days' etc
+    # (PeerTube will periodically delete old entries from database).
     remote:
       max_age: -1
 
 plugins:
-  # The website PeerTube will ask for available PeerTube plugins and themes
-  # This is an unmoderated plugin index, so only install plugins/themes you trust
+  # The website PeerTube will ask for available PeerTube plugins and themes.
+  # This is an unmoderated plugin index, so only install plugins/themes
+  # you trust.
   index:
     enabled: true
-    check_latest_versions_interval: '12 hours' # How often you want to check new plugins/themes versions
     url: 'https://packages.joinpeertube.org'
+
+    # How often you want to check new plugins/themes versions>
+    check_latest_versions_interval: '12 hours'
 
 
 ###############################################################################
@@ -349,24 +373,24 @@ instance:
   # Uncomment or add the category ids you want
   # List of supported categories: https://peertube.cpy.re/api/v1/videos/categories
   categories:
-#    - 1  # Music
-#    - 2  # Films
-#    - 3  # Vehicles
-#    - 4  # Art
-#    - 5  # Sports
-#    - 6  # Travels
-#    - 7  # Gaming
-#    - 8  # People
-#    - 9  # Comedy
-#    - 10 # Entertainment
-    - 11 # News & Politics
-#    - 12 # How To
-#    - 13 # Education
-    - 14 # Activism
-    - 15 # Science & Technology
-#    - 16 # Animals
-#    - 17 # Kids
-#    - 18 # Food
+    # - 1   # Music
+    # - 2   # Films
+    # - 3   # Vehicles
+    # - 4   # Art
+    # - 5   # Sports
+    # - 6   # Travels
+    # - 7   # Gaming
+    # - 8   # People
+    # - 9   # Comedy
+    # - 10  # Entertainment
+    - 11    # News & Politics
+    # - 12  # How To
+    # - 13  # Education
+    - 14    # Activism
+    - 15    # Science & Technology
+    # - 16  # Animals
+    # - 17  # Kids
+    # - 18  # Food
 
   default_client_route: '/videos/trending'
 
