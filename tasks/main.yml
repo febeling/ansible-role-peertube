@@ -1,4 +1,7 @@
 ---
+- name: Validate variables
+  action: validate_vars
+
 - name: Group
   group:
     name: '{{ peertube__group }}'
