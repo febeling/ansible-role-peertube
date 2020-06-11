@@ -1,1 +1,7 @@
 ---
+- name: peertube | systemd
+  systemd:
+    name: '{{ peertube__service }}'
+    daemon_reload: true
+    enabled: true
+    state: restarted

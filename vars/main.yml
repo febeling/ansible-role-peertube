@@ -2,3 +2,4 @@
 peertube__version: '2.2.0'
 peertube__archive_url: 'https://github.com/Chocobozzz/PeerTube/releases/download/v{{ peertube__version }}/peertube-v{{ peertube__version }}.zip'
 peertube__archive_checksum: 'sha256:b65732879a851d810f736370e4c2ffa23bbca0cc06ff4e12286d370eff827f84'
+peertube__systemd_descr: 'PeerTube, ActivityPub-federated video streaming platform'

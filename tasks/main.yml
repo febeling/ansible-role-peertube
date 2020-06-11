@@ -56,3 +56,12 @@
     dest: '{{ peertube__current_link }}'
     owner: '{{ peertube__user }}'
     group: '{{ peertube__group }}'
+
+- name: Create systemd service
+  template:
+    src: templates/peertube.service
+    dest: '/etc/systemd/system/{{ peertube__service }}.service'
+    mode: 'u=rw,g=r,o=r'
+    owner: root
+    group: root
+  notify: peertube | systemd

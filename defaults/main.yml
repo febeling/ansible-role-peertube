@@ -1,6 +1,7 @@
 ---
-peertube__group: peertube
-peertube__user:  peertube
+peertube__group:   peertube
+peertube__user:    peertube
+peertube__service: peertube
 
 peertube__dir: '/var/www/peertube'
 
@@ -12,3 +13,7 @@ peertube__versions_dir: '{{ peertube__dir }}/versions'
 peertube__archive_file: '{{ peertube__versions_dir }}/peertube-v{{ peertube__version }}.zip'
 peertube__config_file:  '{{ peertube__config_dir }}/production.yaml'
 peertube__version_dir:  '{{ peertube__versions_dir }}/peertube-v{{ peertube__version }}'
+
+peertube__npm: '/usr/bin/npm'
+
+peertube__systemd_after: 'network.target' # postgresql.service redis-server.service
