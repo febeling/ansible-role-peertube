@@ -120,8 +120,8 @@ class ActionModule(ActionBase):
     def validate_systemd_after(self, value):
         if not isinstance(value, str):
             return 'is not str'
-        if not self.path_re.fullmatch(value):
-            return 'does not match format %s' % self.path_re
+        if not self.systemd_after_re.fullmatch(value):
+            return 'does not match format %s' % self.systemd_after_re
 
     def validate_user(self, value):
         if not isinstance(value, str):
