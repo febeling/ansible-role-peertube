@@ -22,7 +22,7 @@ class ActionModule(ActionBase):
         'versions_dir',
     ]
 
-    path_re = re.compile(r'^/[-_/a-z0-9]*$')
+    path_re = re.compile(r'^/[-_./a-z0-9]*$')
 
     common_name_re = re.compile(r'^[a-z_][a-z0-9_-]{0,30}(\$|[a-z0-9_-])?$')
 
