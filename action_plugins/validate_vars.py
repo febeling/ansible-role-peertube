@@ -66,76 +66,76 @@ class ActionModule(ActionBase):
         if not isinstance(value, str):
             return 'is not str'
         if not self.path_re.fullmatch(value):
-            return 'has invalid format'
+            return 'does not match format %s' % self.path_re
 
     def validate_config_dir(self, value):
         if not isinstance(value, str):
             return 'is not str'
         if not self.path_re.fullmatch(value):
-            return 'has invalid format'
+            return 'does not match format %s' % self.path_re
 
     def validate_config_file(self, value):
         if not isinstance(value, str):
             return 'is not str'
         if not self.path_re.fullmatch(value):
-            return 'has invalid format'
+            return 'does not match format %s' % self.path_re
 
     def validate_current_link(self, value):
         if not isinstance(value, str):
             return 'is not str'
         if not self.path_re.fullmatch(value):
-            return 'has invalid format'
+            return 'does not match format %s' % self.path_re
 
     def validate_dir(self, value):
         if not isinstance(value, str):
             return 'is not str'
         if not self.path_re.fullmatch(value):
-            return 'has invalid format'
+            return 'does not match format %s' % self.path_re
 
     def validate_group(self, value):
         if not isinstance(value, str):
             return 'is not str'
         if not self.common_name_re.fullmatch(value):
-            return 'has invalid format'
+            return 'does not match format %s' % self.common_name_re
 
     def validate_npm(self, value):
         if not isinstance(value, str):
             return 'is not str'
         if not self.path_re.fullmatch(value):
-            return 'has invalid format'
+            return 'does not match format %s' % self.path_re
 
     def validate_service(self, value):
         if not isinstance(value, str):
             return 'is not str'
         if not self.common_name_re.fullmatch(value):
-            return 'has invalid format'
+            return 'does not match format %s' % self.common_name_re
 
     def validate_storage_dir(self, value):
         if not isinstance(value, str):
             return 'is not str'
         if not self.path_re.fullmatch(value):
-            return 'has invalid format'
+            return 'does not match format %s' % self.path_re
 
     def validate_systemd_after(self, value):
         if not isinstance(value, str):
             return 'is not str'
         if not self.path_re.fullmatch(value):
-            return 'has invalid format'
+            return 'does not match format %s' % self.path_re
 
     def validate_user(self, value):
         if not isinstance(value, str):
             return 'is not str'
         if not self.common_name_re.fullmatch(value):
-            return 'has invalid format'
+            return 'does not match format %s' % self.common_name_re
 
     def validate_version_dir(self, value):
         if not isinstance(value, str):
             return 'is not str'
         if not self.path_re.fullmatch(value):
-            return 'has invalid format'
+            return 'does not match format %s' % self.path_re
 
     def validate_versions_dir(self, value):
         if not isinstance(value, str):
             return 'is not str'
         if not self.path_re.fullmatch(value):
-            return 'has invalid format'
+            return 'does not match format %s' % self.path_re
