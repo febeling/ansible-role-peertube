@@ -45,7 +45,7 @@ class ActionModule(ActionBase):
             if msg_part is not None:
                 value = str(value)
 
-                if len(value) <= 30:
+                if len(value) <= 120:
                     partial_value = value
                 else:
                     partial_value = '%s...' % value[0:30]
