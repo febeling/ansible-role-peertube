@@ -16,6 +16,7 @@ class ActionModule(ActionBase):
         'npm',
         'service',
         'storage_dir',
+        'systemd_after',
         'user',
         'version_dir',
         'versions_dir',
@@ -24,6 +25,8 @@ class ActionModule(ActionBase):
     path_re = re.compile(r'^/[-_/a-z0-9]*$')
 
     common_name_re = re.compile(r'^[a-z_][a-z0-9_-]{0,30}(\$|[a-z0-9_-])?$')
+
+    systemd_after_re = re.compile(r'^[-_.a-zA-Z0-9]+( [-_.a-zA-Z0-9]+)*$')
 
     def run(self, tmp=None, task_vars=None):
         if task_vars is None:
@@ -108,6 +111,12 @@ class ActionModule(ActionBase):
             return 'has invalid format'
 
     def validate_storage_dir(self, value):
+        if not isinstance(value, str):
+            return 'is not str'
+        if not self.path_re.fullmatch(value):
+            return 'has invalid format'
+
+    def validate_systemd_after(self, value):
         if not isinstance(value, str):
             return 'is not str'
         if not self.path_re.fullmatch(value):
