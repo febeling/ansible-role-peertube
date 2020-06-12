@@ -65,6 +65,7 @@ class ActionModule(ActionBase):
     def validate_archive_file(self, value):
         if not isinstance(value, str):
             return 'is not str'
+        value = value.replace('{{ peertube__version }}', '')
         if not self.path_re.fullmatch(value):
             return 'does not match format %s' % self.path_re
 
@@ -131,6 +132,7 @@ class ActionModule(ActionBase):
     def validate_version_dir(self, value):
         if not isinstance(value, str):
             return 'is not str'
+        value = value.replace('{{ peertube__version }}', '')
         if not self.path_re.fullmatch(value):
             return 'does not match format %s' % self.path_re
 
